@@ -1,6 +1,8 @@
-﻿using Prism;
+﻿using AP.MobileToolkit.Fonts;
+using Prism;
 using Prism.Ioc;
 using Prism.Logging;
+using ToolkitDemo.Fonts;
 using ToolkitDemo.Services;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Essentials.Interfaces;
@@ -42,6 +44,7 @@ namespace ToolkitDemo
             containerRegistry.RegisterSingleton<IMenuService, MenuService>();
             containerRegistry.Register<IClipboard, ClipboardImplementation>();
             containerRegistry.Register<ICodeSampleResolver, CodeSampleResolver>();
+            IconFontRegistry.Register(new IconFont("fa-solid-900.ttf", "fas", typeof(AppFontIcons)));
         }
     }
 }
