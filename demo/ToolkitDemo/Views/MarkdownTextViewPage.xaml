@@ -24,6 +24,7 @@
             <toolkit:MarkdownTextView Markdown="- Option 2" />
             <toolkit:MarkdownTextView Markdown="- Option 3" />
             <toolkit:MarkdownTextView Markdown="This is a [link](https://www.google.com)" />
+            <toolkit:MarkdownTextView Markdown="``` public class Test { public int Index { get; set; } } ```" />
         </StackLayout>
     </ScrollView>
 </ContentPage>
