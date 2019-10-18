@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:toolkit="clr-namespace:AP.MobileToolkit.Controls;assembly=AP.MobileToolkit"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ToolkitDemo.Views.MarkdownTextViewPage"
+             Title="Markdown Text View">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Text="Code Behind" Priority="0" Command="{Binding ShowCodeBehind}" />
+    </ContentPage.ToolbarItems>
+    
+    <ScrollView>
+        <StackLayout Padding="20">
+            <toolkit:MarkdownTextView Markdown="# H1" />
+            <toolkit:MarkdownTextView Markdown="## H2" />
+            <toolkit:MarkdownTextView Markdown="### H3" />
+            <toolkit:MarkdownTextView Markdown="#### H4" />
+            <toolkit:MarkdownTextView Markdown="##### H5" />
+            <toolkit:MarkdownTextView Markdown="###### H6" />
+            <toolkit:MarkdownTextView Markdown="This is **bold** text." />
+            <toolkit:MarkdownTextView Markdown="This is *italic* text." />
+            <toolkit:MarkdownTextView Markdown="- Option 1" />
+            <toolkit:MarkdownTextView Markdown="- Option 2" />
+            <toolkit:MarkdownTextView Markdown="- Option 3" />
+            <toolkit:MarkdownTextView Markdown="This is a [link](https://www.google.com)" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

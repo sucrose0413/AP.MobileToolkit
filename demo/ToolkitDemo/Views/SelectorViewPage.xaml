@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:toolkit="clr-namespace:AP.MobileToolkit.Controls;assembly=AP.MobileToolkit"
+             xmlns:converter="clr-namespace:AP.MobileToolkit.Converters;assembly=AP.MobileToolkit"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ToolkitDemo.Views.SelectorViewPage"
+             Title="Selector View">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="SelectorViewCodeBehind" Order="Primary" Text="Code Behind" Priority="0" Command="{Binding ShowCodeBehind}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="SelectedItemConverter" TrueColor="Yellow" FalseColor="Transparent" />
+            <converter:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <StackLayout Orientation="Horizontal" Padding="0,10,5,10">
+                <Label Style="{StaticResource Bold}" Text="Multi-Select Enabled" VerticalTextAlignment="Center" />
+                <Switch x:Name="MultiSelect" HorizontalOptions="EndAndExpand" IsToggled="{Binding MultiSelectEnabled}" />
+            </StackLayout>
+            
+            <toolkit:SelectorView x:Name="SelectorView" ItemsSource="{Binding ItemList}" AllowMultiple="{Binding MultiSelectEnabled}">
+                <toolkit:SelectorView.Header>
+                    <Label Style="{StaticResource Heading}" Text="{Binding Header}" />
+                </toolkit:SelectorView.Header>
+                <toolkit:SelectorView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="0,10,5,10" 
+                                     BackgroundColor="{Binding IsSelected, Converter= {StaticResource SelectedItemConverter}}">
+                                <Label Text="{Binding Text}" VerticalTextAlignment="Center" />
+                                <Label Text="Selected: " VerticalTextAlignment="Center" />
+                                <Label Text="{Binding IsSelected}" VerticalTextAlignment="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </toolkit:SelectorView.ItemTemplate>
+            </toolkit:SelectorView>
+
+            <Label Style="{StaticResource Heading}" Text="Selected Items" />
+
+            <toolkit:RepeaterView ItemsSource="{Binding SelectedItems, Source={x:Reference SelectorView}}" 
+                              IsVisible="{Binding MultiSelectEnabled}">
+                <toolkit:RepeaterView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="0,10,5,10">
+                                <Label Text="{Binding Text}" VerticalTextAlignment="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </toolkit:RepeaterView.ItemTemplate>
+            </toolkit:RepeaterView>
+
+            <Label Text="{Binding SelectedItem.Text, Source={x:Reference SelectorView}}" 
+               IsVisible="{Binding MultiSelectEnabled, Converter= {StaticResource InverseBooleanConverter}}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
