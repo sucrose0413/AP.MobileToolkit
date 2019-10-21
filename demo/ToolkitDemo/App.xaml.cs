@@ -43,7 +43,7 @@ namespace ToolkitDemo
             containerRegistry.RegisterSingleton<IMenuService, MenuService>();
             containerRegistry.Register<IClipboard, ClipboardImplementation>();
             containerRegistry.Register<ICodeSampleResolver, CodeSampleResolver>();
-            containerRegistry.Register<IMenuBuilder, MenuBuilder>();
+            containerRegistry.RegisterSingleton<IMenuBuilder, MenuBuilder>();
         }
     }
 }

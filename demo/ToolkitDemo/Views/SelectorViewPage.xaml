@@ -8,7 +8,7 @@
              x:Class="ToolkitDemo.Views.SelectorViewPage"
              Title="Selector View">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="SelectorViewCodeBehind" Order="Primary" Text="Code Behind" Priority="0" Command="{Binding ShowCodeBehind}" />
+        <ToolbarItem Order="Primary" Text="Code Behind" Priority="0" Command="{Binding ShowCodeBehind}" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>

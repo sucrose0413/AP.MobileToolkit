@@ -7,7 +7,7 @@
              x:Class="ToolkitDemo.Views.RepeaterViewPage"
              Title="Repeater View">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="RepeaterViewCodeBehind" Order="Primary" Text="Code Behind" Priority="0" Command="{Binding ShowCodeBehind}" />
+        <ToolbarItem Order="Primary" Text="Code Behind" Priority="0" Command="{Binding ShowCodeBehind}" />
     </ContentPage.ToolbarItems>
 
     <ScrollView>
