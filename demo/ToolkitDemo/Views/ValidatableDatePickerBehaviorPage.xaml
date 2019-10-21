@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ToolkitDemo.Views.ValidatableDatePickerBehaviorPage"
+             xmlns:toolkit="clr-namespace:AP.MobileToolkit.Controls;assembly=AP.MobileToolkit"
+             xmlns:behavior="clr-namespace:AP.MobileToolkit.Behaviors;assembly=AP.MobileToolkit"
+             Title="Validatable DatePicker Behavior">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Text="Code Behind" Priority="0" Command="{Binding ShowCodeBehind}"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Padding="20">
+        <toolkit:BorderlessDatePicker Date="2019-10-21">
+            <toolkit:BorderlessDatePicker.Behaviors>
+                <behavior:ValidatableDatePickerBehavior Model="{Binding DatePickerValidatableModel}" />
+            </toolkit:BorderlessDatePicker.Behaviors>
+        </toolkit:BorderlessDatePicker>
+    </StackLayout>
+</ContentPage>

@@ -1,4 +1,5 @@
-﻿using Prism;
+﻿using AP.CrossPlatform.Validations;
+using Prism;
 using Prism.Ioc;
 using Prism.Logging;
 using ToolkitDemo.Services;
@@ -42,6 +43,7 @@ namespace ToolkitDemo
             containerRegistry.RegisterSingleton<IMenuService, MenuService>();
             containerRegistry.Register<IClipboard, ClipboardImplementation>();
             containerRegistry.Register<ICodeSampleResolver, CodeSampleResolver>();
+            containerRegistry.Register<IValidatableModel, ValidatableModel>();
         }
     }
 }
