@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:toolkitEffects="clr-namespace:AP.MobileToolkit.Effects;assembly=AP.MobileToolkit"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ToolkitDemo.Views.ImageEntryEffectPage"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Text="Code Behind" Priority="0" Command="{Binding ShowCodeBehind}"/>
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Entry Placeholder="Enter text">
+                <Entry.Effects>
+                    <toolkitEffects:ImageEntryEffect Alignment="Right" ImageHeight="20" ImageWidth="20" LineColor="Blue" ImageSource="icon.png" />
+                </Entry.Effects>
+            </Entry>
+            <Entry Placeholder="Enter text">
+                <Entry.Effects>
+                    <toolkitEffects:ImageEntryEffect Alignment="Left" ImageHeight="20" ImageWidth="20" LineColor="Green" ImageSource="icon.png" />
+                </Entry.Effects>
+            </Entry>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
